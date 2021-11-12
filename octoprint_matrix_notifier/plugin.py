@@ -1,8 +1,10 @@
 import datetime
 import io
+import os
 import time
 from pathlib import Path
 from textwrap import dedent
+from shutil import copyfile
 
 import octoprint.plugin
 import octoprint.util
@@ -254,7 +256,12 @@ class MatrixNotifierPlugin(octoprint.plugin.EventHandlerPlugin,
                 break
             time.sleep(0.1)
 
-        return file_path
+        # Copy and try to clean up timelapse to avoid unecessary renders
+        temp_path = os.path.join('/tmp', file_path.name)
+        copyfile(file_path, temp_path)
+        tl.unload()
+
+        return temp_path
 
     @property
     def room_id(self):
@@ -298,9 +305,11 @@ class MatrixNotifierPlugin(octoprint.plugin.EventHandlerPlugin,
 
         content = {
             "msgtype": "m.image",
-            "body": file_path.name,
+            "body": os.path.basename(file_path),
             "info": {"mimetype": "image/jpg", "w": img_w, "h": img_h},
             "url": mxc_url,
         }
 
-        return self.client.room_send(self.room_id, "m.room.message", content)
+        result = self.client.room_send(self.room_id, "m.room.message", content)
+        os.unlink(file_path)
+        return result
