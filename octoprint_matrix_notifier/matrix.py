@@ -78,9 +78,11 @@ class SimpleMatrixClient:
         )
 
     def room_send_markdown_message(self, room_id, text):
+        # Quick fix to strip out some markdown chars from body so notifications look better
+        body = text.replace('*', '').replace('#', '')
         content = {
             "msgtype": "m.text",
-            "body": text,
+            "body": body,
             "format": "org.matrix.custom.html",
             "formatted_body": markdown.markdown(text, extensions=['nl2br'])
         }
