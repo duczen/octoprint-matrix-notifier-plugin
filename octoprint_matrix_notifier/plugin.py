@@ -123,12 +123,12 @@ class MatrixNotifierPlugin(octoprint.plugin.EventHandlerPlugin,
 
                 # version check: github repository
                 "type": "github_release",
-                "user": "Cadair",
+                "user": "duczen",
                 "repo": "octoprint-matrix-notifier-plugin",
                 "current": self._plugin_version,
 
                 # update method: pip
-                "pip": "https://github.com/Cadair/octoprint-matrix-notifier-plugin/archive/{target_version}.zip",
+                "pip": "https://github.com/duczen/octoprint-matrix-notifier-plugin/archive/{target_version}.zip",
             }
         }
 
@@ -208,9 +208,10 @@ class MatrixNotifierPlugin(octoprint.plugin.EventHandlerPlugin,
 
         message = template.format(**keys)
 
-        self.client.room_send_markdown_message(self.room_id, message)
+        # Change the order here so last notification contains message instead of image
         if self._settings.get(["send_snapshot"]):
             self.send_snapshot()
+        self.client.room_send_markdown_message(self.room_id, message)
 
     def on_print_progress(self, storage, path, progress):
         interval = int(self._settings.get(["events", "progress", "interval"])) or 1

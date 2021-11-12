@@ -4,10 +4,9 @@ Send messages and snapshots to matrix rooms.
 
 ## Setup
 
-Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
-or manually using this URL:
+Install manually using this URL:
 
-    https://github.com/Cadair/octoprint-matrix-notifier-plugin/archive/main.zip
+    https://github.com/duczen/octoprint-matrix-notifier-plugin/archive/main.zip
 
 ## Configuration
 
@@ -15,11 +14,6 @@ The plugin can be configured via the octoprint UI. You will need the room alias 
 
 The easiest way to obtain an access token is to login with Element, copy the access token from the settings panel and then *do not logout*.
 
-## Credits
-
-This plugin is heavily inspired by [OctoSlack](https://github.com/fraschetti/Octoslack) and I used [Octoprint Signal Notifier](https://github.com/aerickson/OctoPrint_Signal-Notifier) to understand how to write an octoprint plugin and how to capture a snapshot from the camera.
-
-## Developer Info
 
 ### Making a Release
 

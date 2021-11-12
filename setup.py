@@ -21,13 +21,13 @@ plugin_version = "0.2.2"
 plugin_description = """Sends matrix notifications and snapshots of your print."""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Stuart Mumford"
+plugin_author = "David Uczen"
 
 # The plugin's author's mail address.
-plugin_author_email = "stuart@cadair.com"
+plugin_author_email = "dave@duczen.io"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/Cadair/octoprint-matrix-notifier-plugin"
+plugin_url = "https://github.com/duczen/octoprint-matrix-notifier-plugin"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "AGPLv3"

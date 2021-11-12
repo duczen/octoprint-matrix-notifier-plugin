@@ -6,13 +6,14 @@ title: Matrix Notifier
 description: Sends matrix notifications and snapshots of your print.
 authors:
 - Stuart Mumford
+- David Uczen
 license: AGPLv3
 
 date: 2021-07-18
 
-homepage: https://github.com/Cadair/octoprint-matrix-notifier-plugin
-source: https://github.com/Cadair/octoprint-matrix-notifier-plugin
-archive: https://github.com/Cadair/octoprint-matrix-notifier-plugin/archive/main.zip
+homepage: https://github.com/duczen/octoprint-matrix-notifier-plugin
+source: https://github.com/duczen/octoprint-matrix-notifier-plugin
+archive: https://github.com/duczen/octoprint-matrix-notifier-plugin/archive/main.zip
 
 tags:
 - notifications
@@ -60,4 +61,3 @@ Take the event name from https://docs.octoprint.org/en/master/events/ and add a 
 ```
 
 This would send messages on the "Connected" event. Find the existing section of the config and edit it where appropriate rather than adding new sections.
-Note that not all events have been tested, please [open an issue](https://github.com/Cadair/octoprint-matrix-notifier-plugin/issues/new) if you encounter an issue with a specific event.
